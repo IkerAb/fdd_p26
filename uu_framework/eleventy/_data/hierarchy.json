@@ -1,0 +1,251 @@
+{
+  "name": "clase",
+  "path": "",
+  "type": "root",
+  "title": "Contenido",
+  "children": [
+    {
+      "name": "01_introduccion",
+      "path": "01_introduccion",
+      "type": "directory",
+      "order": [
+        0,
+        1,
+        0,
+        ""
+      ],
+      "children": [],
+      "has_index": true,
+      "title": "Introducción"
+    },
+    {
+      "name": "images",
+      "path": "images",
+      "type": "directory",
+      "order": [
+        2,
+        999,
+        0,
+        "images"
+      ],
+      "children": [],
+      "has_index": false,
+      "title": "Images"
+    },
+    {
+      "name": "docs",
+      "path": "docs",
+      "url": "/docs/",
+      "type": "directory",
+      "title": "Documentación",
+      "has_index": false,
+      "no_number": true,
+      "children": [
+        {
+          "name": "dev",
+          "path": "docs/dev",
+          "url": "/docs/dev/",
+          "type": "directory",
+          "title": "Developer Guide",
+          "has_index": false,
+          "no_number": true,
+          "children": [
+            {
+              "name": "00_index",
+              "path": "docs/dev/00_index",
+              "type": "file",
+              "title": "Developer Guide",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "01_architecture",
+              "path": "docs/dev/01_architecture",
+              "type": "file",
+              "title": "Architecture",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "02_preprocessing",
+              "path": "docs/dev/02_preprocessing",
+              "type": "file",
+              "title": "Preprocessing",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "03_eleventy",
+              "path": "docs/dev/03_eleventy",
+              "type": "file",
+              "title": "Eleventy",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "04_theming",
+              "path": "docs/dev/04_theming",
+              "type": "file",
+              "title": "Theming",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "05_components",
+              "path": "docs/dev/05_components",
+              "type": "file",
+              "title": "Components",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "06_templates",
+              "path": "docs/dev/06_templates",
+              "type": "file",
+              "title": "Templates",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "07_troubleshooting",
+              "path": "docs/dev/07_troubleshooting",
+              "type": "file",
+              "title": "Troubleshooting",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "08_deployment",
+              "path": "docs/dev/08_deployment",
+              "type": "file",
+              "title": "Deployment",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "estudiante",
+          "path": "docs/estudiante",
+          "url": "/docs/estudiante/",
+          "type": "directory",
+          "title": "Guía del Estudiante",
+          "has_index": false,
+          "no_number": true,
+          "children": [
+            {
+              "name": "00_index",
+              "path": "docs/estudiante/00_index",
+              "type": "file",
+              "title": "Guía del Estudiante",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "01_navegacion",
+              "path": "docs/estudiante/01_navegacion",
+              "type": "file",
+              "title": "Navegacion",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "02_accesibilidad",
+              "path": "docs/estudiante/02_accesibilidad",
+              "type": "file",
+              "title": "Accesibilidad",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "03_tareas",
+              "path": "docs/estudiante/03_tareas",
+              "type": "file",
+              "title": "Tareas",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "profesor",
+          "path": "docs/profesor",
+          "url": "/docs/profesor/",
+          "type": "directory",
+          "title": "Guía del Profesor",
+          "has_index": false,
+          "no_number": true,
+          "children": [
+            {
+              "name": "00_index",
+              "path": "docs/profesor/00_index",
+              "type": "file",
+              "title": "Guía del Profesor",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "01_estructura",
+              "path": "docs/profesor/01_estructura",
+              "type": "file",
+              "title": "Estructura",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "02_frontmatter",
+              "path": "docs/profesor/02_frontmatter",
+              "type": "file",
+              "title": "Frontmatter",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "03_componentes",
+              "path": "docs/profesor/03_componentes",
+              "type": "file",
+              "title": "Componentes",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "04_mermaid",
+              "path": "docs/profesor/04_mermaid",
+              "type": "file",
+              "title": "Mermaid",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            },
+            {
+              "name": "05_buenas_practicas",
+              "path": "docs/profesor/05_buenas_practicas",
+              "type": "file",
+              "title": "Buenas Practicas",
+              "has_index": false,
+              "no_number": true,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "01_introduccion/00_index.md": {
+    "path": "clase/01_introduccion/00_index.md",
+    "title": "Introducción",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": "Introducción al curso de Fuentes de Datos",
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  }
+}
