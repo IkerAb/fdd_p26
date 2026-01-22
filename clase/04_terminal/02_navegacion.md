@@ -42,6 +42,61 @@ En Unix (Linux/macOS), todo es un árbol que empieza en `/` (raíz):
 └── var/                  ← Datos variables (logs, etc.)
 ```
 
+### Directorios Principales de Unix/Linux
+
+En Unix/Linux, cada directorio tiene un propósito específico. Esto viene de décadas de convención:
+
+| Directorio | Nombre | ¿Qué contiene? |
+|------------|--------|----------------|
+| `/` | **Root** (raíz) | El directorio padre de TODO. Es el inicio del árbol. |
+| `/home` | **Home** | Carpetas personales de cada usuario (`/home/maria`, `/home/juan`) |
+| `/root` | **Root user home** | Carpeta personal del administrador (superusuario) |
+| `/bin` | **Binaries** | Comandos esenciales (`ls`, `cp`, `mv`, `cat`) |
+| `/sbin` | **System binaries** | Comandos de administración (`shutdown`, `mount`) |
+| `/usr` | **User programs** | Programas instalados por el usuario/sistema |
+| `/usr/bin` | — | Más comandos y programas |
+| `/usr/local` | — | Software instalado manualmente |
+| `/etc` | **Et cetera / Config** | Archivos de configuración del sistema |
+| `/var` | **Variable** | Datos que cambian: logs, bases de datos, caché |
+| `/var/log` | — | Archivos de registro (logs) |
+| `/tmp` | **Temporary** | Archivos temporales (se borran al reiniciar) |
+| `/dev` | **Devices** | Archivos especiales que representan hardware |
+| `/mnt` | **Mount** | Punto de montaje para discos externos |
+| `/opt` | **Optional** | Software opcional de terceros |
+
+**¿Por qué importa esto?**
+
+- Cuando busques **configuraciones** → mira en `/etc`
+- Cuando busques **logs de errores** → mira en `/var/log`
+- Cuando quieras **guardar tus cosas** → usa tu `/home/usuario`
+- Los **comandos** están en `/bin` y `/usr/bin`
+
+### El Usuario Root vs Tu Usuario
+
+| Concepto | Descripción |
+|----------|-------------|
+| **root** (usuario) | El superusuario/administrador. Puede hacer TODO. |
+| `/root` | La carpeta home del usuario root |
+| `/` (root directory) | El directorio raíz del sistema (diferente al usuario) |
+| **tu usuario** | Usuario normal con permisos limitados |
+| `/home/tu_usuario` | Tu carpeta personal (también llamada `~`) |
+
+```bash
+# Ver quién eres
+whoami
+# maria (usuario normal)
+
+# Tu home
+echo $HOME
+# /home/maria
+
+# El home de root (necesitas permisos)
+ls /root
+# ls: cannot open directory '/root': Permission denied
+```
+
+> **Nota:** En Linux casi nunca trabajas como root directamente. Usas `sudo` para ejecutar comandos específicos con permisos de administrador.
+
 ### Diferencias con Windows
 
 | Unix/Linux/macOS | Windows |
@@ -157,23 +212,115 @@ ls -a
 ls -lah
 ```
 
-#### Entendiendo `ls -l`
+#### Entendiendo `ls -l` (formato largo)
+
+La bandera `-l` muestra información **detallada** de cada archivo. Ejemplo:
 
 ```
 drwxr-xr-x  2 maria maria 4096 Jan 20 10:30 Documents
 -rw-r--r--  1 maria maria  256 Jan 19 09:15 notas.txt
 ```
 
-| Parte | Significado |
-|-------|-------------|
-| `d` o `-` | Directorio o archivo |
-| `rwxr-xr-x` | Permisos |
-| `2` | Número de enlaces |
-| `maria` | Dueño |
-| `maria` | Grupo |
-| `4096` | Tamaño en bytes |
-| `Jan 20 10:30` | Fecha de modificación |
-| `Documents` | Nombre |
+**Desglose columna por columna:**
+
+```
+d rwxr-xr-x  2  maria  maria  4096  Jan 20 10:30  Documents
+│ │          │  │      │      │     │             │
+│ │          │  │      │      │     │             └── Nombre del archivo/carpeta
+│ │          │  │      │      │     └── Fecha de última modificación
+│ │          │  │      │      └── Tamaño en bytes
+│ │          │  │      └── Grupo dueño
+│ │          │  └── Usuario dueño
+│ │          └── Número de enlaces (hard links)
+│ └── Permisos (rwxr-xr-x)
+└── Tipo: d=directorio, -=archivo, l=link simbólico
+```
+
+**Tabla resumen:**
+
+| Columna | Ejemplo | Significado |
+|---------|---------|-------------|
+| 1 | `d` o `-` | **Tipo:** `d`=directorio, `-`=archivo, `l`=link |
+| 2 | `rwxr-xr-x` | **Permisos** (ver abajo) |
+| 3 | `2` | Número de enlaces duros |
+| 4 | `maria` | **Usuario** dueño del archivo |
+| 5 | `maria` | **Grupo** dueño del archivo |
+| 6 | `4096` | **Tamaño** en bytes |
+| 7 | `Jan 20 10:30` | **Fecha** de última modificación |
+| 8 | `Documents` | **Nombre** del archivo o carpeta |
+
+#### Entendiendo los permisos (`rwxr-xr-x`)
+
+Los permisos se dividen en 3 grupos de 3 caracteres:
+
+```
+rwx r-x r-x
+│   │   │
+│   │   └── Permisos para OTROS (everyone else)
+│   └── Permisos para el GRUPO
+└── Permisos para el DUEÑO (owner)
+```
+
+| Letra | Significado | En archivos | En directorios |
+|-------|-------------|-------------|----------------|
+| `r` | **R**ead (leer) | Ver contenido | Listar archivos (`ls`) |
+| `w` | **W**rite (escribir) | Modificar | Crear/eliminar archivos |
+| `x` | E**x**ecute (ejecutar) | Ejecutar como programa | Entrar al directorio (`cd`) |
+| `-` | Sin permiso | — | — |
+
+**Ejemplos de permisos:**
+
+| Permisos | Significado |
+|----------|-------------|
+| `rwxr-xr-x` | Dueño: todo. Grupo y otros: leer y ejecutar |
+| `rw-r--r--` | Dueño: leer/escribir. Otros: solo leer |
+| `rwx------` | Solo el dueño puede hacer todo |
+| `rwxrwxrwx` | Todos pueden hacer todo (¡peligroso!) |
+
+#### Las banderas más útiles de `ls`
+
+| Bandera | Significado | Ejemplo |
+|---------|-------------|---------|
+| `-l` | Formato **l**argo (detalles) | `ls -l` |
+| `-a` | **A**ll - incluir archivos ocultos (empiezan con `.`) | `ls -a` |
+| `-h` | **H**uman readable - tamaños en KB, MB, GB | `ls -lh` |
+| `-t` | Ordenar por **t**iempo (más reciente primero) | `ls -lt` |
+| `-S` | Ordenar por **S**ize (más grande primero) | `ls -lS` |
+| `-r` | **R**everse - invertir orden | `ls -lr` |
+| `-R` | **R**ecursivo - incluir subdirectorios | `ls -R` |
+
+**Combinaciones útiles:**
+
+```bash
+ls -la      # Detalles + ocultos
+ls -lah     # Detalles + ocultos + tamaños legibles
+ls -lt      # Ordenados por fecha (recientes primero)
+ls -lS      # Ordenados por tamaño (grandes primero)
+ls -latr    # Todos, por fecha, más antiguo primero
+```
+
+:::exercise{title="Explorar ls -l" difficulty="1"}
+
+1. Ejecuta `ls -l` en tu home y responde:
+   - ¿Cuántos directorios hay? (empiezan con `d`)
+   - ¿Cuál es el archivo más grande?
+   - ¿Quién es el dueño de los archivos?
+
+2. Compara:
+   ```bash
+   ls -l
+   ls -la
+   ```
+   ¿Qué archivos nuevos aparecen con `-a`? ¿Con qué empiezan?
+
+3. Compara:
+   ```bash
+   ls -l
+   ls -lh
+   ```
+   ¿Cómo cambian los tamaños?
+
+:::
 
 ### `cd` - Cambiar directorio
 

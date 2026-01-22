@@ -4,9 +4,10 @@
 
 :::homework{id="4.0" title="Videos SSH" due="2026-01-27" points="10"}
 
-Ver los siguientes videos sobre SSH (se preguntará al respecto en clase):
+Ver los siguientes videos sobre SSH (se preguntará al respecto en clase), necesitaras instalar y configurar to ssh local apra jugar bandit. **Si tienes wsl2 hazlo en wsl2 no powershell**:
 
-- [VIDEO PLACEHOLDER - AGREGAR LINK]
+1. [Video 1: Introducción a SSH](https://www.youtube.com/watch?v=5JvLV2-ngCI)
+2. [ the basics of secure shell (ssh) ](https://www.youtube.com/watch?v=WwGRGfLy6q8&embeds_referring_euri=https%3A%2F%2Fdocs.google.com%2F&embeds_referring_origin=https%3A%2F%2Fdocs.google.com&source_ve_path=Mjg2NjY)
 
 **Se hará quiz en clase sobre el contenido de los videos.**
 

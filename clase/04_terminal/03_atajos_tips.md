@@ -216,22 +216,165 @@ ls *.{py,txt,md}
 
 ---
 
-## Múltiples Comandos
+## El Pipe `|` - Conectar Comandos
+
+El **pipe** (tubo) es uno de los conceptos más poderosos de Unix. Te permite **conectar la salida de un comando con la entrada de otro**.
+
+### ¿Qué es un Pipe?
+
+```
+comando1 | comando2
+```
+
+Significa: "toma lo que produce `comando1` y pásaselo a `comando2`".
+
+```mermaid
+graph LR
+    A[comando1] -->|salida| B[pipe |]
+    B -->|entrada| C[comando2]
+    C --> D[resultado]
+```
+
+### Analogía
+
+Piensa en una fábrica con máquinas conectadas por tubos:
+- La **primera máquina** produce algo
+- El **tubo** lleva ese producto a la siguiente máquina
+- La **segunda máquina** lo procesa y produce el resultado final
+
+### Ejemplos Básicos
+
+```bash
+# Sin pipe: ls muestra archivos en pantalla
+ls -la
+
+# Con pipe: ls pasa su salida a 'head' que muestra solo las primeras 5 líneas
+ls -la | head -5
+
+# Sin pipe: cat muestra todo el archivo
+cat archivo_largo.txt
+
+# Con pipe: cat pasa el contenido a 'grep' que filtra líneas con "error"
+cat archivo.log | grep "error"
+```
+
+### Ejemplos Prácticos
+
+```bash
+# Ver los últimos 10 comandos del historial
+history | tail -10
+
+# Contar cuántos archivos hay en un directorio
+ls | wc -l
+
+# Buscar un proceso específico
+ps aux | grep python
+
+# Ver archivos ordenados por tamaño (más grande primero)
+ls -la | sort -k5 -n -r | head -10
+
+# Buscar "TODO" en archivos y contar ocurrencias
+grep -r "TODO" . | wc -l
+```
+
+### Encadenando Múltiples Pipes
+
+Puedes conectar muchos comandos:
+
+```bash
+# comando1 | comando2 | comando3 | comando4
+
+# Ejemplo: encontrar las 5 palabras más frecuentes en un archivo
+cat texto.txt | tr ' ' '\n' | sort | uniq -c | sort -nr | head -5
+```
+
+**¿Qué hace cada parte?**
+
+| Paso | Comando | Qué hace |
+|------|---------|----------|
+| 1 | `cat texto.txt` | Lee el archivo |
+| 2 | `tr ' ' '\n'` | Reemplaza espacios por saltos de línea (una palabra por línea) |
+| 3 | `sort` | Ordena alfabéticamente |
+| 4 | `uniq -c` | Cuenta repeticiones consecutivas |
+| 5 | `sort -nr` | Ordena por número (mayor primero) |
+| 6 | `head -5` | Muestra solo los primeros 5 |
+
+### Comandos Útiles para Usar con Pipes
+
+| Comando | Qué hace | Ejemplo |
+|---------|----------|---------|
+| `head -n X` | Primeras X líneas | `cat log \| head -20` |
+| `tail -n X` | Últimas X líneas | `history \| tail -10` |
+| `grep "texto"` | Filtra líneas que contienen "texto" | `ps aux \| grep python` |
+| `wc -l` | Cuenta líneas | `ls \| wc -l` |
+| `sort` | Ordena líneas | `cat nombres.txt \| sort` |
+| `uniq` | Elimina duplicados consecutivos | `sort lista.txt \| uniq` |
+| `cut` | Extrae columnas | `cat datos.csv \| cut -d',' -f1` |
+| `less` | Ver con scroll | `cat archivo_largo \| less` |
+
+:::exercise{title="Practica pipes" difficulty="2"}
+
+Ejecuta estos comandos y entiende qué hace cada pipe:
+
+```bash
+# 1. ¿Cuántos archivos/carpetas hay en /etc?
+ls /etc | wc -l
+
+# 2. ¿Cuáles son los últimos 5 comandos que ejecutaste?
+history | tail -5
+
+# 3. ¿Hay algún proceso de "bash" corriendo?
+ps aux | grep bash
+
+# 4. Muestra los archivos de tu home ordenados por tamaño
+ls -la ~ | sort -k5 -n
+
+# 5. Cuenta cuántas líneas tienen la palabra "error" en /var/log/syslog
+cat /var/log/syslog | grep -i error | wc -l
+```
+
+:::
+
+---
+
+## Múltiples Comandos (sin pipe)
+
+A diferencia del pipe que **conecta** salida→entrada, estos operadores **ejecutan comandos en secuencia**:
 
 ### Ejecutar en secuencia
 
 ```bash
-# ; ejecuta todos, sin importar errores
+# ; ejecuta todos, sin importar si fallan
 comando1 ; comando2 ; comando3
 
-# && ejecuta el siguiente solo si el anterior tuvo éxito
+# && ejecuta el siguiente SOLO si el anterior tuvo éxito
 comando1 && comando2 && comando3
 
-# || ejecuta el siguiente solo si el anterior falló
+# || ejecuta el siguiente SOLO si el anterior falló
 comando1 || comando2
 ```
 
-### Ejemplos
+### Diferencia entre `;`, `&&` y `|`
+
+| Operador | Nombre | Qué hace |
+|----------|--------|----------|
+| `;` | Secuencia | Ejecuta uno después del otro |
+| `&&` | AND | Ejecuta el siguiente si el anterior funcionó |
+| `\|\|` | OR | Ejecuta el siguiente si el anterior falló |
+| `\|` | Pipe | Conecta salida de uno con entrada de otro |
+
+```bash
+# ; - Ejecuta ambos sin importar qué pase
+ls archivo_que_no_existe ; echo "esto se imprime igual"
+
+# && - Solo ejecuta echo si ls funciona
+ls archivo_que_no_existe && echo "esto NO se imprime"
+
+# | - Pasa la salida de ls a grep
+ls -la | grep ".txt"   # Filtra, no ejecuta en secuencia
+```
+
+### Ejemplos de `&&` y `||`
 
 ```bash
 # Actualizar sistema (solo upgrade si update funciona)
@@ -241,7 +384,10 @@ sudo apt update && sudo apt upgrade
 mkdir proyecto && cd proyecto
 
 # Intentar algo, si falla mostrar mensaje
-comando || echo "Falló el comando"
+comando_que_falla || echo "Falló el comando"
+
+# Combinado: intenta, si falla avisa, si no continúa
+make && echo "Compilación exitosa" || echo "Error al compilar"
 ```
 
 ---
