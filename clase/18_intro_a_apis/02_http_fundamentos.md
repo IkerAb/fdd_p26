@@ -64,6 +64,37 @@ Tres partes, siempre en este orden:
 2. **Headers** --- metadatos clave-valor
 3. **Body** --- datos (opcional, no todos los métodos lo usan)
 
+### ¿Qué significa cada header del ejemplo?
+
+```
+Host: api.anthropic.com           ← A qué servidor va la petición.
+                                    Un mismo IP puede servir múltiples
+                                    dominios; Host le dice cuál quieres.
+
+Content-Type: application/json    ← "Los datos que te envío están en
+                                    formato JSON." Sin esto, el servidor
+                                    no sabe cómo interpretar el body.
+
+x-api-key: sk-ant-api03-xxxxx    ← Tu clave de autenticación. Es como
+                                    tu número de reservación: sin ella,
+                                    el servidor te responde 401.
+                                    El prefijo "x-" indica header custom
+                                    (no estándar de HTTP).
+
+anthropic-version: 2023-06-01    ← Versión de la API que quieres usar.
+                                    Las APIs evolucionan; este header
+                                    garantiza que tu código no se rompa
+                                    cuando el proveedor cambia el formato
+                                    de respuesta.
+
+Accept: application/json          ← "Quiero que me respondas en JSON."
+                                    Es la contraparte de Content-Type:
+                                    uno dice qué formato ENVÍAS,
+                                    el otro qué formato QUIERES RECIBIR.
+```
+
+En el restaurante: los headers son las instrucciones que le das al mesero **además** de tu orden. "Soy vegetariano" (`Accept`), "aquí está mi reservación" (`x-api-key`), "quiero el menú de primavera" (`anthropic-version`).
+
 ---
 
 ## Anatomía de una respuesta HTTP
@@ -184,6 +215,21 @@ El código de estado es un número de tres digitos que indica el resultado de la
 | **500** Internal Server Error | Algo se rompió en el servidor | "Se cayó la cocina, disculpe" | Bug en el servidor del proveedor |
 | **502** Bad Gateway | El proxy/gateway recibió basura del servidor real | "El intercomunicador con la cocina falla" | Load balancer no puede contactar el backend |
 | **503** Service Unavailable | Servidor sobrecargado o en mantenimiento | "Estamos llenos, no aceptamos más clientes" | Servidor del LLM sobrecargado |
+
+### El código que nunca esperarías
+
+HTTP tiene un easter egg oficial: el código **418 I'm a teapot**. Fue definido en el [RFC 2324](https://datatracker.ietf.org/doc/html/rfc2324) como parte del *Hyper Text Coffee Pot Control Protocol* (HTCPCP) --- una broma del April Fools de 1998.
+
+```
+  418 I'm a teapot
+
+  "Me pides que prepare café, pero soy una tetera."
+
+  El servidor se rehúsa a preparar café porque es,
+  permanente y orgullosamente, una tetera.
+```
+
+No es solo una curiosidad --- el 418 se usa en la práctica como respuesta genérica de "no voy a hacer eso" en servicios que quieren rechazar peticiones sin dar información específica (anti-bot, honeypots). Google lo devuelve en [google.com/teapot](https://www.google.com/teapot).
 
 ### Cómo manejar errores en Python
 
