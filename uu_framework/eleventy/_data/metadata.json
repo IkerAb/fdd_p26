@@ -11,6 +11,134 @@
     "components": [],
     "has_frontmatter": true
   },
+  "a_stack/01_introduction/01_cuentas.md": {
+    "path": "clase/a_stack/01_introduction/01_cuentas.md",
+    "title": "Configuración de Cuentas",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.1.1",
+          "title": "Crear cuentas: LLMs y DataCamp",
+          "due": "2026-01-15",
+          "points": "0"
+        },
+        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/01_introduction/00_index.md": {
+    "path": "clase/a_stack/01_introduction/00_index.md",
+    "title": "Módulo 1: Introducción",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/01_wsl_install.md": {
+    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
+    "title": "Guía de Sistema Operativo: WSL2 y Linux",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.1",
+          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/02_browser_env.md": {
+    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
+    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.3.2",
+          "title": "Crear cuenta de GitHub y solicitar Student Pack",
+          "due": "2026-01-20",
+          "points": "0"
+        },
+        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/03_os_setup/00_index.md": {
+    "path": "clase/a_stack/03_os_setup/00_index.md",
+    "title": "Módulo 3: Configuración del Sistema Operativo",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/01_conceptos_llm.md": {
+    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
+    "title": "Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "A.2.1",
+          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
+          "due": "2026-01-15",
+          "points": "20"
+        },
+        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "a_stack/02_llms/00_index.md": {
+    "path": "clase/a_stack/02_llms/00_index.md",
+    "title": "Módulo 2: Large Language Models (LLMs)",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
   "11_python_intermedio/05_paquetes_instalables.md": {
     "path": "clase/11_python_intermedio/05_paquetes_instalables.md",
     "title": "Paquetes instalables: de código a librería",
@@ -1233,6 +1361,218 @@
           "title": "Predecir tiempos de gather"
         },
         "content_preview": "Dadas las siguientes coroutines:\n\n```python\nasync def tarea_a(): await asyncio.sleep(1.0); return \"A\"\nasync def tarea_b(): await asyncio.sleep(2.0); return \"B\"\nasync def tarea_c(): await asyncio.sleep"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/10_comparacion_y_decision.md": {
+    "path": "clase/18_intro_a_apis/10_comparacion_y_decision.md",
+    "title": "Comparacion y arbol de decision",
+    "type": "lesson",
+    "order": 10,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Disena la capa de APIs para un sistema real"
+        },
+        "content_preview": "Imagina que estas disenando **un editor de documentos colaborativo en\ntiempo real con sugerencias de IA** (piensa en Google Docs + Copilot).\n\nEl sistema tiene estos componentes:\n\n1. **Editor web** don"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/06_polling_y_webhooks.md": {
+    "path": "clase/18_intro_a_apis/06_polling_y_webhooks.md",
+    "title": "Polling y Webhooks",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña un sistema de notificaciones para un pipeline de datos"
+        },
+        "content_preview": "Tienes un pipeline de datos que:\n1. Recibe un CSV con 10 millones de filas\n2. Limpia los datos (~5 minutos)\n3. Entrena un modelo (~30 minutos)\n4. Genera predicciones (~10 minutos)\n5. Exporta resultado"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/07_grpc_y_protobuf.md": {
+    "path": "clase/18_intro_a_apis/07_grpc_y_protobuf.md",
+    "title": "gRPC y Protocol Buffers",
+    "type": "lesson",
+    "order": 7,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña mensajes .proto para un sistema de e-commerce"
+        },
+        "content_preview": "Un sistema de e-commerce necesita comunicación interna entre sus microservicios. Diseña los mensajes Protocol Buffers para los siguientes casos:\n\n- **a)** Define un mensaje `Order` con campos para: id"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/04_streaming_y_sse.md": {
+    "path": "clase/18_intro_a_apis/04_streaming_y_sse.md",
+    "title": "Streaming y Server-Sent Events",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Calcula el ahorro de ancho de banda de streaming vs buffered"
+        },
+        "content_preview": "Considera una respuesta de LLM de **2,000 tokens** que tarda **8 segundos** en generarse completamente. Cada token ocupa en promedio **5 bytes** de payload.\n\n**Parte 1: Overhead por evento SSE**\n\nCada"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/05_websockets.md": {
+    "path": "clase/18_intro_a_apis/05_websockets.md",
+    "title": "WebSockets",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña el protocolo de mensajes para un editor de texto colaborativo"
+        },
+        "content_preview": "Diseña el protocolo de mensajes WebSocket para un editor de texto colaborativo (estilo Google Docs simplificado). Dos o más usuarios pueden editar el mismo documento simultáneamente.\n\n**Parte 1: Tipos"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/01_que_es_una_api.md": {
+    "path": "clase/18_intro_a_apis/01_que_es_una_api.md",
+    "title": "¿Qué es una API?",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Mapea las flechas del chatbot"
+        },
+        "content_preview": "Vuelve al diagrama de arquitectura del chatbot en `00_index.md`. Para cada flecha numerada (1-9):\n\n1. Identifica **quién es el cliente** y **quién es el servidor**\n2. ¿La comunicación es unidirecciona"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/02_http_fundamentos.md": {
+    "path": "clase/18_intro_a_apis/02_http_fundamentos.md",
+    "title": "HTTP: el protocolo base",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Anatomía de peticiones reales"
+        },
+        "content_preview": "Usando `requests` en Python (o `curl` en terminal), realiza las siguientes peticiones y para cada una documenta: método, URL, headers enviados, status code recibido, y headers de respuesta relevantes."
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/00_index.md": {
+    "path": "clase/18_intro_a_apis/00_index.md",
+    "title": "Introducción a APIs",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/03_rest_y_crud.md": {
+    "path": "clase/18_intro_a_apis/03_rest_y_crud.md",
+    "title": "REST y CRUD",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diseña los endpoints REST de un servicio de streaming de música"
+        },
+        "content_preview": "Diseña la API REST para un servicio de streaming de música (estilo Spotify). Debe cubrir al menos estos recursos: usuarios, playlists, canciones y artistas.\n\nPara cada endpoint indica:\n\n1. **Método HT"
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/09_soap_y_legado.md": {
+    "path": "clase/18_intro_a_apis/09_soap_y_legado.md",
+    "title": "SOAP y protocolos legado",
+    "type": "lesson",
+    "order": 9,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Comparacion multi-protocolo"
+        },
+        "content_preview": "Toma la siguiente operacion: **crear un mensaje en un LLM** con modelo\n`claude-3`, mensaje de usuario `\"Explica que es una API\"`, y\n`max_tokens=500`.\n\nEscribe la representacion de esta llamada en los "
+      }
+    ],
+    "has_frontmatter": true
+  },
+  "18_intro_a_apis/08_graphql.md": {
+    "path": "clase/18_intro_a_apis/08_graphql.md",
+    "title": "GraphQL",
+    "type": "lesson",
+    "order": 8,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Escribe queries GraphQL para un sistema universitario"
+        },
+        "content_preview": "Imagina que el ITAM tiene una API GraphQL para consultar información académica. Dado el siguiente schema:\n\n```graphql\ntype Estudiante {\n  matricula: ID!\n  nombre: String!\n  carrera: String!\n  semestre"
       }
     ],
     "has_frontmatter": true
@@ -3203,133 +3543,5 @@
       }
     ],
     "has_frontmatter": true
-  },
-  "a_stack/01_introduction/01_cuentas.md": {
-    "path": "clase/a_stack/01_introduction/01_cuentas.md",
-    "title": "Configuración de Cuentas",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.1.1",
-          "title": "Crear cuentas: LLMs y DataCamp",
-          "due": "2026-01-15",
-          "points": "0"
-        },
-        "content_preview": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp con tu correo @itam.mx."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/01_introduction/00_index.md": {
-    "path": "clase/a_stack/01_introduction/00_index.md",
-    "title": "Módulo 1: Introducción",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/01_wsl_install.md": {
-    "path": "clase/a_stack/03_os_setup/01_wsl_install.md",
-    "title": "Guía de Sistema Operativo: WSL2 y Linux",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.3.1",
-          "title": "Leer seccion A.3 OS Setup & Instalación de Unix ",
-          "due": "2026-01-20",
-          "points": "0"
-        },
-        "content_preview": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica que funciona ejecutando  `python3 --version` o `python --version` en la terminal de Ubuntu. Si tienes"
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/02_browser_env.md": {
-    "path": "clase/a_stack/03_os_setup/02_browser_env.md",
-    "title": "Guía para Estudiantes: Usar GitHub Codespaces y Ona (antes Gitpod) Solo con el Navegador",
-    "type": "lesson",
-    "order": 2,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.3.2",
-          "title": "Crear cuenta de GitHub y solicitar Student Pack",
-          "due": "2026-01-20",
-          "points": "0"
-        },
-        "content_preview": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es requisito para las siguientes secciones del curso."
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/03_os_setup/00_index.md": {
-    "path": "clase/a_stack/03_os_setup/00_index.md",
-    "title": "Módulo 3: Configuración del Sistema Operativo",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
-  },
-  "a_stack/02_llms/01_conceptos_llm.md": {
-    "path": "clase/a_stack/02_llms/01_conceptos_llm.md",
-    "title": "Large Language Models (LLMs)",
-    "type": "lesson",
-    "order": 1,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [
-      {
-        "type": "homework",
-        "attrs": {
-          "id": "A.2.1",
-          "title": "leer  A.2 LLMs & Curso: AI Assisted Coding for Developers",
-          "due": "2026-01-15",
-          "points": "20"
-        },
-        "content_preview": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding for Developers](https://app.datacamp.com/learn/courses/ai-assisted-coding-for-developers). La evide"
-      }
-    ],
-    "has_frontmatter": false
-  },
-  "a_stack/02_llms/00_index.md": {
-    "path": "clase/a_stack/02_llms/00_index.md",
-    "title": "Módulo 2: Large Language Models (LLMs)",
-    "type": "lesson",
-    "order": 0,
-    "date": null,
-    "summary": null,
-    "tags": [],
-    "due_date": null,
-    "components": [],
-    "has_frontmatter": false
   }
 }
